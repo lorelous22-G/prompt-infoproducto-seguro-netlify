@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Biblioteca privada de Ritos del Alma.">
   <title>Tu biblioteca | Ritos del Alma</title>
+  <script>
+    /* La vista se cierra también en el navegador; los PDF se validan otra vez en la Function. */
+    fetch('/.netlify/identity/user', { credentials: 'same-origin' })
+      .then(response => response.ok ? response.json() : null)
+      .then(user => { if (!user?.app_metadata?.roles?.includes('buyer')) location.replace('/login.html'); })
+      .catch(() => location.replace('/login.html'));
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
