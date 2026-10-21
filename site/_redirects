@@ -1,6 +1,6 @@
 # La cerradura se aplica antes de que Netlify entregue lectores o archivos.
 /portal /portal/ 301
 /portal/* /portal/:splat 200! Role=buyer
-/portal/* /login.html 401!
+/portal/* /login.html 302!
 /read/* /read/:splat 200! Role=buyer
-/read/* /login.html 401!
+/read/* /login.html 302!
